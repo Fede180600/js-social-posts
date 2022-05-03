@@ -98,3 +98,12 @@ const posts = [
         "created": "06-18-2021"
     },
 ];
+
+// **Milestone 2** - Prendendo come riferimento il layout di esempio presente nell'html, stampiamo i post del nostro feed.
+
+// Devo prelevare il Container dei posts
+
+// Creo il div post 
+    // innerHTML per creare il template literal
+
+// Appendo il div al container dei posts
