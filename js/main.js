@@ -179,15 +179,21 @@ printPosts(postsContainer, posts);
 
 // Creo array dei liked posts
 const likedPosts = [];
-// Prelevo dal DOM il like-button e il likes_counter
+// Prelevo dal DOM il like-button
 const likeButton = document.getElementById('like-button');
-const likeCounter = document.getElementById('like-counter-1');
 
 // Richiamo la funzione per aggiungere like
-addLike(likeButton, likeCounter);
+likeButton.addEventListener("click", function(posts, likeButton) {
+    // Prelevo dal DOM il likes counter
+    const likeCounter = document.getElementById('like-counter-1');
+    likeCounter.innerHTML = posts['likes'] + 1;
+    console.log(likeCounter);
+});
+
 
 // FUNCTIONS
 
+// MAIN FUNCTION
 /**
   
  * Description // FUNZIONE PER STAMPARE I POSTS NEL DOM 
@@ -243,3 +249,4 @@ function printPosts(container, printPosts) {
     })
     return printPost;
 }
+
