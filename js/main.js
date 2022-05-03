@@ -102,8 +102,30 @@ const posts = [
 // **Milestone 2** - Prendendo come riferimento il layout di esempio presente nell'html, stampiamo i post del nostro feed.
 
 // Devo prelevare il Container dei posts
+const postsContainer = document.getElementById('container');
 
-// Creo il div post 
-    // innerHTML per creare il template literal
+printPosts(container);
+
+
+// FUNCTIONS
+
+/**
+  
+ * Description // FUNZIONE PER STAMPARE I POSTS NEL DOM 
+ * @param {element} postsContainer -> il container di tutti i posts
+ * @returns {}
+ */
+function printPosts(postsContainer) {
+    // // Ciclo forEach per scorrere tutti gli object dell'array dei post
+    const printPost = posts.forEach(element => {
+        // Creo il div post
+        const post = document.createElement('div');
+        // Aggiungo la classe post al div 
+        post.classList.add('post');
+            // innerHTML per creare il template literal con la struttura del post
+
+    })
+    return printPost
+}
 
 // Appendo il div al container dei posts
