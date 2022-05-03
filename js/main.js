@@ -101,12 +101,90 @@ const posts = [
 
 // **Milestone 2** - Prendendo come riferimento il layout di esempio presente nell'html, stampiamo i post del nostro feed.
 
+// // Devo prelevare il Container dei posts
+// const postsContainer = document.getElementById('container');
+
+// //Richiamo la funzione per stampare i posts nel DOM 
+// printPosts(postsContainer, posts);
+
+
+// // FUNCTIONS
+
+// /**
+  
+//  * Description // FUNZIONE PER STAMPARE I POSTS NEL DOM 
+//  * @param {any} container -> il container di tutti i posts
+//  * @param {any} printPost -> i posts da stampare
+//  * 
+//  */
+// function printPosts(container, printPosts) {
+//     postsContainer.innerHTML = '';
+
+//     // // Ciclo forEach per scorrere tutti gli object dell'array dei post
+//     const printPost = posts.forEach(posts => {
+//         // Creo il div post
+//         const postDiv = document.createElement('div');
+//         // Aggiungo la classe post al div 
+//         postDiv.classList.add('post');
+//         // innerHTML per creare il template literal con la struttura del post
+//         postDiv.innerHTML = `
+//         <div class="post__header">
+//             <div class="post-meta">                    
+//                 <div class="post-meta__icon">
+//                     <img class="profile-pic" src="${posts.author.image}" alt="${posts.author.name}">                    
+//                 </div>
+//                 <div class="post-meta__data">
+//                     <div class="post-meta__author">${posts.author.name}</div>
+//                     <div class="post-meta__time">${posts.created}</div>
+//                 </div>                    
+//             </div>
+//         </div>
+//         <div class="post__text">${posts.content}</div>
+//         <div class="post__image">
+//             <img src="" alt="">
+//         </div>
+//         <div class="post__footer">
+//             <div class="likes js-likes">
+//                 <div class="likes__cta">
+//                     <a class="like-button  js-like-button" href="#" data-postid="1">
+//                         <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
+//                         <span class="like-button__label">Mi Piace</span>
+//                     </a>
+//                 </div>
+//                 <div class="likes__counter">
+//                     Piace a <b id="like-counter-1" class="js-likes-counter">${posts.likes}  </b> persone
+//                 </div>
+//             </div> 
+//         </div>
+//         `
+//         // Appendo il div al container dei posts
+//         postsContainer.append(postDiv);
+
+        
+        
+        
+
+//     })
+//     return printPost;
+// }
+
+//**Milestone 3** - Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e incrementiamo il counter dei likes relativo. 
+//Salviamo in un secondo array gli id dei post ai quali abbiamo messo il like
+
 // Devo prelevare il Container dei posts
 const postsContainer = document.getElementById('container');
 
 //Richiamo la funzione per stampare i posts nel DOM 
 printPosts(postsContainer, posts);
 
+// Creo array dei liked posts
+const likedPosts = [];
+// Prelevo dal DOM il like-button e il likes_counter
+const likeButton = document.getElementById('like-button');
+const likeCounter = document.getElementById('like-counter-1');
+
+// Richiamo la funzione per aggiungere like
+addLike(likeButton, likeCounter);
 
 // FUNCTIONS
 
@@ -141,12 +219,12 @@ function printPosts(container, printPosts) {
         </div>
         <div class="post__text">${posts.content}</div>
         <div class="post__image">
-            <img src="${posts.media}" alt="">
+            <img src="" alt="">
         </div>
         <div class="post__footer">
             <div class="likes js-likes">
-                <div class="likes__cta">
-                    <a class="like-button  js-like-button" href="#" data-postid="1">
+                <div class="likes__cta" id="like-button">
+                    <a class="like-button  js-like-button" href="#" data-postid="${posts.id}">
                         <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                         <span class="like-button__label">Mi Piace</span>
                     </a>
@@ -160,7 +238,8 @@ function printPosts(container, printPosts) {
         // Appendo il div al container dei posts
         postsContainer.append(postDiv);
 
+        
+
     })
     return printPost;
 }
-
